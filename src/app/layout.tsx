@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "./lib/util";
 import { Inter } from 'next/font/google';
+import Navbar from "./components/Navbar";
+import Providers from "@/components/providers";
+
 
 const inter = Inter({
   subsets: ['latin'], // This defines the subsets you want (usually 'latin')
@@ -30,15 +33,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
+      <Providers>
       <body
         className={cn(
           'min-h-screen font-sans antialiased grainy',
           inter.className
         )}
       >
+        <Navbar />
         {children}
-      </body>
+      </body></Providers>
     </html>
   );
 }
